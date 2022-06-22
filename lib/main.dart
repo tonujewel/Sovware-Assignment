@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sovware_assignment/AppStyle/app_style.dart';
 import 'package:sovware_assignment/screens/splash_screen/splash_screen.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:sovware_assignment/services/home_service.dart';
+import 'AppStyle/pallate.dart';
 import 'resources/api_provider.dart';
 
 void main() async {
@@ -22,7 +24,8 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Palette.kToDark,
+        primaryColor: AppStyle.backgroundColor,
         ),
         home: const SplashScreen(),
       ),

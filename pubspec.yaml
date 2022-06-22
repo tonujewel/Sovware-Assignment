@@ -48,11 +48,10 @@ dependencies:
   hive_flutter: ^1.1.0
   # Cache image
   cached_network_image: ^3.2.1
-  # Share image url
-  share_plus: ^4.0.6
-  # downlod to gallery 
-  image_downloader: ^0.31.0
+  # date formar - helper package
   intl: ^0.17.0
+  # Shared Preferences: 
+  shared_preferences: ^2.0.15
 
 
 dev_dependencies:
