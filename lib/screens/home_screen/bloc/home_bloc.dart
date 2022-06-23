@@ -54,6 +54,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
               stargazersCount: "${response[i].stargazersCount}",
               ownerName: "${response[i].owner!.login}",
               id: "${response[i].id}",
+              pushedAt: response[i].pushAt.toString(),
             );
 
             if (!isExist(data)) {
@@ -71,6 +72,20 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
     on<HomeNoInternetEvent>((event, emit) {
       emit(HomeNoInternetState());
+    });
+
+    on<FilterByDateEvent>((event, emit) async {
+      await _homeService.init();
+      emit(HomeLoadingState());
+      final result = _homeService.sortByDate();
+
+      emit(HomeLoadedState(result));
+    });
+    on<FilterByStarEvent>((event, emit) async {
+      await _homeService.init();
+        emit(HomeLoadingState());
+      final result = _homeService.sortByStar();
+      emit(HomeLoadedState(result));
     });
   }
 

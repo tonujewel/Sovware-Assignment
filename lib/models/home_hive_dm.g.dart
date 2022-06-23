@@ -29,13 +29,14 @@ class HomeHiveDmAdapter extends TypeAdapter<HomeHiveDm> {
       stargazersCount: fields[11] as String,
       ownerName: fields[12] as String,
       id: fields[0] as String,
+      pushedAt: fields[13] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, HomeHiveDm obj) {
     writer
-      ..writeByte(12)
+      ..writeByte(13)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -59,7 +60,9 @@ class HomeHiveDmAdapter extends TypeAdapter<HomeHiveDm> {
       ..writeByte(11)
       ..write(obj.stargazersCount)
       ..writeByte(12)
-      ..write(obj.ownerName);
+      ..write(obj.ownerName)
+      ..writeByte(13)
+      ..write(obj.pushedAt);
   }
 
   @override

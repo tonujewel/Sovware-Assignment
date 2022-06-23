@@ -1,7 +1,6 @@
 import 'package:hive/hive.dart';
 import 'package:sovware_assignment/models/home_hive_dm.dart';
 
-
 class HomeService {
   late Box<HomeHiveDm> hiveBox;
   Future<void> init() async {
@@ -19,6 +18,23 @@ class HomeService {
 
   void addImageToList(HomeHiveDm homeData) {
     hiveBox.add(homeData);
+  }
+
+  List<HomeHiveDm> sortByDate() {
+    final homeList = hiveBox.values;
+    List<HomeHiveDm> product = homeList.toList();
+    product.sort((a, b) =>DateTime.parse(a.pushedAt).compareTo(DateTime.parse(b.pushedAt)));
+
+    return product;
+  }
+
+  List<HomeHiveDm> sortByStar() {
+    final homeList = hiveBox.values;
+    List<HomeHiveDm> product = homeList.toList();
+    product.sort((a, b) =>
+        int.parse(a.stargazersCount).compareTo(int.parse(b.stargazersCount)));
+
+    return product;
   }
 
   Future<void> updateGallery(HomeHiveDm homeData) async {

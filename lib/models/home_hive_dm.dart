@@ -27,6 +27,8 @@ class HomeHiveDm extends HiveObject {
   final String stargazersCount;
   @HiveField(12)
   final String ownerName;
+  @HiveField(13)
+  final String pushedAt;
 
   HomeHiveDm({
     required this.name,
@@ -41,5 +43,6 @@ class HomeHiveDm extends HiveObject {
     required this.stargazersCount,
     required this.ownerName,
     required this.id,
+    required this.pushedAt
   });
 }

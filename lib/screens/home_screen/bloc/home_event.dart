@@ -13,3 +13,13 @@ class HomeNoInternetEvent extends HomeEvent {
   @override
   List<Object> get props => [];
 }
+
+class FilterByDateEvent extends HomeEvent {
+  @override
+  List<Object?> get props => [];
+}
+
+class FilterByStarEvent extends HomeEvent {
+  @override
+  List<Object?> get props => [];
+}
